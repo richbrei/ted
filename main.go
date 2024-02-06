@@ -4,8 +4,17 @@ import (
 	"fmt"
 	"flag"
 	"io/ioutil"
-	// "os"
+	"os"
+	"os/exec"
 )
+
+func clear_terminal() {
+	// function to clear terminal
+	cmd := exec.Command("clear")
+	
+	cmd.Stdout = os.Stdout
+	cmd.Run()
+}
 
 func main() {
 
@@ -34,6 +43,8 @@ func main() {
 		return
 	}
 
+	// clearing terminal and printing file content
+	clear_terminal()
 	fmt.Println(string(content))
 	return
 }
